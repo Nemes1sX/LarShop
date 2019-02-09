@@ -6,7 +6,7 @@
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="background-color: #eeeeee">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <!--<li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -25,7 +25,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+      </li>-->
     </ul>
     <form class="form-inline my-2 my-lg-0">
         <a href="#" style="color: grey; padding-right: 5px;"><i class="fas fa-heart"></i>Wishlist</a> 
