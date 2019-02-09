@@ -59,7 +59,7 @@ class ProductsTableSeeder extends Seeder
         $product = new \App\Product([
             
             'imagePath' => 'https://www.vynoguru.lt/media/catalog/product/cache/2/image/800x600/9df78eab33525d08d6e5fb8d27136e95/l/i/lithuanian_vodka_originali_1_l.jpg',
-            'category' => 'Degtinė'
+            'category' => 'Degtinė',
             'title' => 'Lietuviška degtinė',
             'description' => 'Skani lietuviška degtinė',
             'price' => 10.50
@@ -68,7 +68,7 @@ class ProductsTableSeeder extends Seeder
         $product = new \App\Product([
             
             'imagePath' => 'https://www.cellarbration.com.sg/content/images/thumbs/0001467_grey-goose-original-700ml_540.jpeg',
-            'category' => 'Degtinė'
+            'category' => 'Degtinė',
             'title' => 'Grey Goose Original',
             'description' => 'Tikra, orginali prancūziška degtinė',
             'price' => 7.8
@@ -77,7 +77,7 @@ class ProductsTableSeeder extends Seeder
         $product = new \App\Product([
             
             'imagePath' => 'https://img.thewhiskyexchange.com/900/vodka_abs66.jpg',
-            'category' => 'Degtinė'
+            'category' => 'Degtinė',
             'title' => 'Absolut Vodka',
             'description' => 'Skani bei kieta degtinė',
             'price' => 16
@@ -86,7 +86,7 @@ class ProductsTableSeeder extends Seeder
         $product = new \App\Product([
             
             'imagePath' => 'https://img.thewhiskyexchange.com/900/vodka_wyb1.jpg',
-            'category' => 'Degtinė'
+            'category' => 'Degtinė',
             'title' => 'Wybrodawa vodka',
             'description' => 'Lenkiška degtinė',
             'price' => 13.40
@@ -95,7 +95,7 @@ class ProductsTableSeeder extends Seeder
         $product = new \App\Product([
             
             'imagePath' => 'https://www.berevita.com/pub/media/catalog/product/cache/image/1000x1320/e9c3970ab036de70892d86c6d221abfe/3/2/32027.jpg',
-            'category' => 'Degtinė'
+            'category' => 'Degtinė',
             'title' => 'Finlandia',
             'description' => 'Tikra suomių degtinė',
             'price' => 12.57
