@@ -15,7 +15,7 @@ class ProductsTableSeeder extends Seeder
             
             'imagePath' => 'https://img.thewhiskyexchange.com/900/rum_cap2.jpg',
             'title' => 'Captain Morgan',
-            'decsription' => 'Skanus Romas',
+            'description' => 'Skanus Romas',
             'price' => '5.5'
         ]);
         $product->save(); ////
