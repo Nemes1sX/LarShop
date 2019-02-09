@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
 
   <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('css/shopping.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body>
   @include('partials.header')
