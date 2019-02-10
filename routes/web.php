@@ -24,6 +24,7 @@ Route::get('sorttitledesc', 'ProductController@sorttitledesc')->name('shop.index
 Route::get('cart', 'ProductController@cart')->name('shop.shoppingcart');
 Route::get('wishlist', 'ProductController@wishlist')->name('shop.wishlist');
 Route::get('/add-to-cart/{id}','ProductController@getAddToCart')->name('product.addToCart');
+Route::get('/deleteItem/{id}', 'ProductController@deleteItem')->name('product.deleteItem');
 Route::get('deletecart', 'ProductController@deleteCart')->name('product.deleteCart');
 Route::get('/add-to-wishlist/{id}','ProductController@getAddToWishlist')->name('product.addToWishlist');
 
