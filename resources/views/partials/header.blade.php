@@ -15,6 +15,18 @@
       <li class="nav-item">
         <a class="nav-link" href="{{url ('whiskey')}}">Viskiai</a>
       <li class="nav-item">  
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+          </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="{{url ('sortpriceasc')}}">Kaina: pigiausia-brangiausia</a>
+          <a class="dropdown-item" href="{{url ('sortpricedesc')}}">Kaina: brangiausia-pigiausia</a>
+          <a class="dropdown-item" href="{{url ('sorttitleasc')}}">Pavadinimas: A-Ž</a>
+          <a class="dropdown-item" href="{{url ('sorttitledesc')}}">Pavadinimas: Ž-A</a>
+      </div>
+      </div> 
       <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
