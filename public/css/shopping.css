@@ -1,9 +1,18 @@
 .thumbnail img{ 
-    max-height: 300px;
+    max-height: 350px;
+    height: 300px;
+    width:  300px;
 }
 
 .price{
     font-size: 16px;
     font-style: bold;
     text-align: center;
+}
+div.product{
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+.caption{
+    padding-top: 10px;
 }
