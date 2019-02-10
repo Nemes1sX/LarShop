@@ -35,6 +35,26 @@ class ProductController extends Controller
         
         return view('shop.index', compact('products'));             
      }
+     public function sortpriceasc(){
+        $produtcts = DB::table('products')
+                            ->orderBy('price', 'asc')
+                            ->get();
+     }
+     public function sortpricedesc(){
+        $produtcts = DB::table('products')
+        ->orderBy('price', 'desc')
+        ->get();
+     }
+     public function sorttitleasc(){
+        $produtcts = DB::table('products')
+        ->orderBy('title', 'asc')
+        ->get();
+     }
+     public function sorttitledesc(){
+        $produtcts = DB::table('products')
+        ->orderBy('title', 'desc')
+        ->get();
+     }
      public function getAddToCart(Request $request, $id){
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;

@@ -17,6 +17,10 @@
 Route::get('/', 'ProductController@index')->name('shop.index');
 Route::get('whiskey', 'ProductController@whiskey')->name('shop.index');
 Route::get('vodka', 'ProductController@vodka')->name('shop.index');
+Route::get('sortpriceasc', 'ProductController@sortpriceasc')->name('shop.index');
+Route::get('sortpricedesc', 'ProductController@sortpricedesc')->name('shop.index');
+Route::get('sorttitleasc', 'ProductController@sorttitleasc')->name('shop.index');
+Route::get('sorttitledesc', 'ProductController@sorttitledesc')->name('shop.index');
 Route::get('cart', 'ProductController@cart')->name('shop.shoppingcart');
 Route::get('wishlist', 'ProductController@wishlist')->name('shop.wishlist');
 Route::get('/add-to-cart/{id}','ProductController@getAddToCart')->name('product.addToCart');
