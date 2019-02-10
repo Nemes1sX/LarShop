@@ -36,25 +36,34 @@ class ProductController extends Controller
         return view('shop.index', compact('products'));             
      }
      public function sortpriceasc(){
-        $produtcts = DB::table('products')
+        $products = DB::table('products')
                             ->orderBy('price', 'asc')
                             ->get();
+                            
+    return view('shop.index', compact('products'));             
      }
+
      public function sortpricedesc(){
-        $produtcts = DB::table('products')
+        $products = DB::table('products')
         ->orderBy('price', 'desc')
         ->get();
-     }
+     return view('shop.index', compact('products'));
+     }             
+
      public function sorttitleasc(){
-        $produtcts = DB::table('products')
+        $products = DB::table('products')
         ->orderBy('title', 'asc')
         ->get();
-     }
+     return view('shop.index', compact('products'));       
+     }      
+
      public function sorttitledesc(){
-        $produtcts = DB::table('products')
+        $products = DB::table('products')
         ->orderBy('title', 'desc')
         ->get();
-     }
+     return view('shop.index', compact('products'));   
+     }          
+
      public function getAddToCart(Request $request, $id){
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -62,6 +71,11 @@ class ProductController extends Controller
         $cart->add($product, $product->id);
 
         $request->session()->put('cart', $cart); 
+        return redirect('/');
+     }
+     public function deleteCart(){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        Session::delete('cart');
         return redirect('/');
      }
      public function cart(){

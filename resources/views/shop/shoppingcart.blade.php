@@ -32,6 +32,7 @@
     <div class="row">
         <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-3 col-sm-offset-3 col-lg-offset-3">
             <button type="button" class="btn btn-sucess">Susimokėti</button>
+            <a href="{{route ('product.deleteCart')}}" class="btn btn-danger">Ištrinti krepšelį</a>
         </div>    
     </div>    
     @else

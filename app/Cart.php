@@ -38,6 +38,10 @@ class Cart extends Model
         $this->totalPrice += $item->price;
     }
 
+  /*public function removeAll(){
+    $this->session->remove($this->instance);
+  }  */
+
     public static function restoreCart($oldCart)
 {
     $cart = new static();
