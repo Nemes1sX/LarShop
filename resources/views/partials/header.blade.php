@@ -21,10 +21,13 @@
           </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="{{url ('sortpriceasc')}}">Kaina: pigiausia-brangiausia</a>
-          <a class="dropdown-item" href="{{url ('sortpricedesc')}}">Kaina: brangiausia-pigiausia</a>
           <a class="dropdown-item" href="{{url ('sorttitleasc')}}">Pavadinimas: A-Ž</a>
-          <a class="dropdown-item" href="{{url ('sorttitledesc')}}">Pavadinimas: Ž-A</a>
+          <a class="dropdown-item" href="{{url ('sorttitledesc')}}">Pavadinimas Ž-A</a>
+          <a class="dropdown-item" href="{{url ('sorttitlevodkaasc')}}">Degtinė Pavadinimas: A-Ž </a>
+          <a class="dropdown-item" href="{{url ('sorttitlevodkadesc')}}">Degtinė Pavadinimas: Ž-A</a>
+          <a class="dropdown-item" href="{{url ('sorttitlevodkaasc')}}">Viskis Pavadinimas: A-Ž </a>
+          <a class="dropdown-item" href="{{url ('sorttitlevodkaasc')}}">Viskis Pavadinimas: Ž-A </a>
+
       </div>
       </div> 
       <!--<li class="nav-item dropdown">

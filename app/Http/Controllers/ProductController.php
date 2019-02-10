@@ -35,34 +35,52 @@ class ProductController extends Controller
         
         return view('shop.index', compact('products'));             
      }
-     public function sortpriceasc(){
+     public function sorttitleasc(){
         $products = DB::table('products')
-                            ->orderBy('price', 'asc')
+                            ->orderBy('title', 'asc')
                             ->get();
                             
     return view('shop.index', compact('products'));             
      }
 
-     public function sortpricedesc(){
+     public function sorttitledesc(){
         $products = DB::table('products')
-        ->orderBy('price', 'desc')
+        ->orderBy('title', 'desc')
         ->get();
      return view('shop.index', compact('products'));
      }             
 
-     public function sorttitleasc(){
+     public function sorttitlevodkaasc(){
         $products = DB::table('products')
+        ->where('category', 'Degtinė')
         ->orderBy('title', 'asc')
         ->get();
      return view('shop.index', compact('products'));       
      }      
 
-     public function sorttitledesc(){
+     public function sorttitlevodkadesc(){
         $products = DB::table('products')
+        ->where('category', 'Degtinė')
         ->orderBy('title', 'desc')
         ->get();
      return view('shop.index', compact('products'));   
-     }          
+     }      
+     
+     public function sorttitlewhiskeyasc(){
+      $products = DB::table('products')
+      ->where('category', 'Viskis')
+      ->orderBy('title', 'asc')
+      ->get();
+   return view('shop.index', compact('products'));       
+   }      
+
+   public function sorttitlewhiskeydesc(){
+      $products = DB::table('products')
+      ->where('category', 'Viskis')
+      ->orderBy('title', 'desc')
+      ->get();
+   return view('shop.index', compact('products'));   
+   }     
 
      public function getAddToCart(Request $request, $id){
         $product = Product::find($id);
