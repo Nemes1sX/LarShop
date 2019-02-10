@@ -16,4 +16,20 @@ class ProductController extends Controller
      return view('shop.index', compact('products'));
 
     }//
+    public function vodka(){
+       $products = DB::table('products')
+                    ->select('*')
+                    ->where('category', Degtinė)
+                    ->get();
+       
+       return view('shop.index', compact('products'));             
+    }
+    public function whiskey(){
+        $products = DB::table('products')
+                     ->select('*')
+                     ->where('category', Viskis)
+                     ->get();
+        
+        return view('shop.index', compact('products'));             
+     }
 }

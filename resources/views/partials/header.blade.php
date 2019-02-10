@@ -7,7 +7,10 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent"  style="background-color: #eeeeee">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Degtinė<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>  
+      </li>  
+      <li class="nav-item">
+        <a class="nav-link" href="#">Degtinė</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Viskiai</a>
