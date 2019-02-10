@@ -15,8 +15,7 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Action<span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Sumažinti 1</a></li>
-                                <li><a href="#">Ištrinti viską</a></li>
+                                <li><a href="{{route ('product.deleteItem', $product['id'])}}">Ištrinti prekę</a></li>
                             </ul>    
                         </div>    
                     </li>

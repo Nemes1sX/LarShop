@@ -73,14 +73,30 @@ class ProductController extends Controller
         $request->session()->put('cart', $cart); 
         return redirect('/');
      }
+     public function deleteItem(Request $request, $id){
+
+        if(!Session::has('cart'))
+            return view('shop.shoppingcart', ['products' => null]);            
+        foreach ($products as $key => $value)
+        {
+            if ($value['id'] == $id) 
+            {                
+                unset($products [$key]);            
+            }
+        }
+        //put back in session array without deleted item
+        $request->session()->push('cart',$products);
+        //then you can redirect or whatever you need
+        return redirect('/');
+     }
      public function deleteCart(){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        Session::delete('cart');
+        Session::flush('cart');
         return redirect('/');
      }
      public function cart(){
         if(!Session::has('cart'))
-            return view('shop.shoppingcart', compact('products', null));
+            return view('shop.shoppingcart', ['products' => null]);
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart); 
         return view('shop.shoppingcart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice ]);
@@ -96,7 +112,7 @@ class ProductController extends Controller
      }
      public function wishlist(){
        if(!Session::has('wishlist'))  
-         return view('shop.wishlist', compact('products', null));
+         return view('shop.wishlist', ['products' => null]);
        $oldWishlist = Session::get('wishlist');
        $wishlist = new Wishlist($oldWishlist);
        return view('shop.wishlist', ['products' => $wishlist->items]);  
