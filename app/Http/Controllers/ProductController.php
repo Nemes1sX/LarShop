@@ -37,15 +37,20 @@ class ProductController extends Controller
      public function getAddToCart(Request $request, $id){
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        //$cart = Cart::restoreCart($oldCart);
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
 
         $request->session()->put('cart', $cart);
-        dd($request->session()->get('cart'));
-        return redirect()->route('shop.index');
+       //dd($request->session()->get('cart'));
+        return redirect('/');
      }
      public function cart(){
-         return view('shop.shoppingcart');
+        if(!Session::has('cart'))
+            return view('shop.shoppingcart', compact('products' => null);
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart); 
+        return view('shop.shoppingcart', compact('products' => $cart->items))   
      }
      public function wishlist(){
          return view('shop.wishlist');
