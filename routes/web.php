@@ -15,5 +15,5 @@
     return view('shop.index');
 });*/
 Route::get('/', 'ProductController@index')->name('shop.index');
-Route::get('/whiskey', 'ProductController@whiskey')->name('shop.index');
-Route::get('/vodka', 'ProductController@vodka')->name('shop.index');
+Route::get('whiskey', 'ProductController@whiskey')->name('shop.index');
+Route::get('vodka', 'ProductController@vodka')->name('shop.index');
