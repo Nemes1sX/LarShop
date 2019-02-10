@@ -25,8 +25,8 @@
           <a class="dropdown-item" href="{{url ('sorttitledesc')}}">Pavadinimas Ž-A</a>
           <a class="dropdown-item" href="{{url ('sorttitlevodkaasc')}}">Degtinė Pavadinimas: A-Ž </a>
           <a class="dropdown-item" href="{{url ('sorttitlevodkadesc')}}">Degtinė Pavadinimas: Ž-A</a>
-          <a class="dropdown-item" href="{{url ('sorttitlevodkaasc')}}">Viskis Pavadinimas: A-Ž </a>
-          <a class="dropdown-item" href="{{url ('sorttitlevodkaasc')}}">Viskis Pavadinimas: Ž-A </a>
+          <a class="dropdown-item" href="{{url ('sorttitlewhiskeyasc')}}">Viskis Pavadinimas: A-Ž </a>
+          <a class="dropdown-item" href="{{url ('sorttitlewhiskeydesc')}}">Viskis Pavadinimas: Ž-A </a>
 
       </div>
       </div> 
