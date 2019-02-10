@@ -1,5 +1,12 @@
 @extends('layouts.layout')
 @section('content')
+<div class="row">
+    <div class="sorting">
+    <!--{{!! Form::open (['url' => '']) !!}}-->
+    {!!  Form::select('sorting', array('price' => 'Kaina', 'text' => 'Pavadinimas'), 'S'); !!}
+    <!--{{!! Form::close !!}}-->
+    </div>    
+</div>
 @foreach($products->chunk(3) as $chunk)
 <div class="row">
     @foreach($chunk as $product)
