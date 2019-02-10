@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Product;
+use App\Cart;
+use Session;
 
 class ProductController extends Controller
 {
@@ -31,6 +33,16 @@ class ProductController extends Controller
                      ->get();
         
         return view('shop.index', compact('products'));             
+     }
+     public function getAddToCart(Request $request, $id){
+        $product = Product::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
+
+        $request->session()->put('cart', $cart);
+        dd($request->session()->get('cart'));
+        return redirect()->route('shop.index');
      }
      public function cart(){
          return view('shop.shoppingcart');

@@ -2,9 +2,10 @@
 @section('content')
 <div class="row">
     <div class="sorting">
-    <!--{{!! Form::open (['url' => '']) !!}}-->
-    {!!  Form::select('sorting', array('price' => 'Kaina', 'text' => 'Pavadinimas'), 'S'); !!}
-    <!--{{!! Form::close !!}}-->
+        <select name="sorting">
+            <option value="price"><a href="#">Rūšiuoti pagal kainą</a></option>
+            <option value="text"><a href="#">Rūšiuoti pagal pavadinimą</a></option>
+        </select>
     </div>    
 </div>
 @foreach($products->chunk(3) as $chunk)
@@ -21,7 +22,7 @@
                     <div class="center">
                         <h3 class="price">{{$product->price}}€</h3>
                         <a href="#" class="btn btn-primary wishlist"><i class="fas fa-heart"></i> Įdėti į Wishlist</a>
-                        <a href="#" class="btn btn-success  cart"><i class="fas fa-shopping-cart"></i>Pridėti į krepšelį</a>
+                        <a href="{{ route('product.addToCart')}}" class="btn btn-success  cart"><i class="fas fa-shopping-cart"></i>Pridėti į krepšelį</a>
                     </div>
                 </div>
             </div>
