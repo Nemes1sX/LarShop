@@ -11,10 +11,10 @@
                 <p class="card-text">Kategorija: {{$product->category}}</p>
                 <p class="card-text">{{$product->description}}</p>
                 <div class="clearfix">
-                    <div align="center">
+                    <div class="center">
                         <h3 class="price">{{$product->price}}</h3>
-                        <div class="pull-left"><a href="#" class="btn btn-primary wishlist"><i class="fas fa-heart"></i> Įdėti į Wishlist</a></div>
-                        <div class="pull-right"><a href="#" class="btn btn-success  cart"><i class="fas fa-shopping-cart"></i>Pridėti į krepšelį</a></div>
+                        <a href="#" class="btn btn-primary wishlist"><i class="fas fa-heart"></i> Įdėti į Wishlist</a>
+                        <a href="#" class="btn btn-success  cart"><i class="fas fa-shopping-cart"></i>Pridėti į krepšelį</a>
                     </div>
                 </div>
             </div>
