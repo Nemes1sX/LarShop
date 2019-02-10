@@ -15,8 +15,8 @@
 Route::get('/', 'ProductController@index')->name('shop.index');
 Route::get('whiskey', 'ProductController@whiskey')->name('shop.index');
 Route::get('vodka', 'ProductController@vodka')->name('shop.index');
-Route::get('sorttitleeasc', 'ProductController@sortpriceasc')->name('shop.index');
-Route::get('sorttitledesc', 'ProductController@sortpricedesc')->name('shop.index');
+Route::get('sorttitleeasc', 'ProductController@sorttitleasc')->name('shop.index');
+Route::get('sorttitledesc', 'ProductController@sorttitledesc')->name('shop.index');
 Route::get('sorttitlevodkaasc', 'ProductController@sorttitlevodkaasc')->name('shop.index');
 Route::get('sorttitlevodkadesc', 'ProductController@sorttitlevodkadesc')->name('shop.index');
 Route::get('sorttitlewhiskeyasc', 'ProductController@sorttitlewhiskeyasc')->name('shop.index');
