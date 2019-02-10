@@ -1,0 +1,2 @@
+# shoppingcart
+Parduotuvės krepšelis Laravel
