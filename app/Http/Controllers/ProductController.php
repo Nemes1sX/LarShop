@@ -7,6 +7,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Cart;
+use App\Wishlist;
 use Session;
 
 class ProductController extends Controller
@@ -37,23 +38,34 @@ class ProductController extends Controller
      public function getAddToCart(Request $request, $id){
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        //$cart = Cart::restoreCart($oldCart);
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
 
-        $request->session()->put('cart', $cart);
-       //dd($request->session()->get('cart'));
+        $request->session()->put('cart', $cart); 
         return redirect('/');
      }
      public function cart(){
         if(!Session::has('cart'))
-            return view('shop.shoppingcart', compact('products' => null);
+            return view('shop.shoppingcart', compact('products', null));
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart); 
-        return view('shop.shoppingcart', compact('products' => $cart->items))   
+        return view('shop.shoppingcart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice ]);
+     }
+     public function getAddToWishlist(Request $request, $id){
+        $product = Product::find($id);
+        $oldWishlist = Session::has('wishlist') ? Session::get('wishlist') : null;
+        $wishlist = new Wishlist($oldWishlist);
+        $wishlist->add($product, $product->id);
+
+        $request->session()->put('wishlist', $wishlist); 
+        return redirect('/');
      }
      public function wishlist(){
-         return view('shop.wishlist');
+       if(!Session::has('wishlist'))  
+         return view('shop.wishlist', compact('products', null));
+       $oldWishlist = Session::get('wishlist');
+       $wishlist = new Wishlist($oldWishlist);
+       return view('shop.wishlist', ['products' => $wishlist->items]);  
      }
 
 }

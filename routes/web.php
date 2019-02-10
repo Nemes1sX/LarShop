@@ -20,5 +20,6 @@ Route::get('vodka', 'ProductController@vodka')->name('shop.index');
 Route::get('cart', 'ProductController@cart')->name('shop.shoppingcart');
 Route::get('wishlist', 'ProductController@wishlist')->name('shop.wishlist');
 Route::get('/add-to-cart/{id}','ProductController@getAddToCart')->name('product.addToCart');
+Route::get('/add-to-wishlist/{id}','ProductController@getAddToWishlist')->name('product.addToWishlist');
 
 
