@@ -73,24 +73,21 @@ class ProductController extends Controller
         $request->session()->put('cart', $cart); 
         return redirect('/');
      }
-     public function deleteItem(Request $request, $id){
+     public function deleteItem(Request $request, $title){
 
         if(!Session::has('cart'))
-            return view('shop.shoppingcart', ['products' => null]);            
-        foreach ($products as $key => $value)
-        {
-            if ($value['id'] == $id) 
-            {                
-                unset($products [$key]);            
-            }
-        }
+            return view('shop.shoppingcart', ['products' => null]);  
+        $product = Product::find($title);    
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;              
+       
         //put back in session array without deleted item
-        $request->session()->push('cart',$products);
+        Session::forget('cart', $title);
         //then you can redirect or whatever you need
         return redirect('/');
      }
      public function deleteCart(){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            return view('shop.shoppingcart', ['products' => null]);
         Session::flush('cart');
         return redirect('/');
      }

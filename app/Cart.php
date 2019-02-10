@@ -22,7 +22,7 @@ class Cart extends Model
 
     public function add($item, $id)
     {
-        $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];
+        $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item, 'id' => $item->id];
 
         if ($this->items)
         {
@@ -34,6 +34,7 @@ class Cart extends Model
         $storedItem['qty']++;
         $storedItem['price'] = $item->price * $storedItem['qty'];
         $this->items[$id] = $storedItem;
+        //$this->items[$id] = $storedItem[];
         $this->totalQty++;
         $this->totalPrice += $item->price;
     }

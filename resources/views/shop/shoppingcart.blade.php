@@ -15,7 +15,7 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Action<span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route ('product.deleteItem', $product['id'])}}">Ištrinti prekę</a></li>
+                                <li><a href="{{route ('product.deleteItem', $product['item']['title'])}}">Ištrinti prekę</a></li>
                             </ul>    
                         </div>    
                     </li>
