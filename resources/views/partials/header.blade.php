@@ -31,8 +31,8 @@
       </li>-->
     </ul>
     <form class="form-inline my-2 my-lg-0">
-        <a href="{{route ('cart')}}" style="color: grey; padding-right: 5px;"><i class="fas fa-heart"></i>Wishlist</a> 
-        <a href="{{route ('wishlist')}}" style="color: grey; padding-right: 5px;"><i class="fas fa-shopping-cart"></i>Shopping cart</a> 
+        <a href="{{url ('wishlist')}}" style="color: grey; padding-right: 5px;"><i class="fas fa-heart"></i>Wishlist</a> 
+        <a href="{{url ('cart')}}" style="color: grey; padding-right: 5px;"><i class="fas fa-shopping-cart"></i>Shopping cart</a> 
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>

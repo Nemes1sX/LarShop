@@ -32,4 +32,11 @@ class ProductController extends Controller
         
         return view('shop.index', compact('products'));             
      }
+     public function cart(){
+         return view('shop.shoppingcart');
+     }
+     public function wishlist(){
+         return view('shop.wishlist');
+     }
+
 }
