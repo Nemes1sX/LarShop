@@ -9,17 +9,11 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>  
       </li>  
-      <!--<li class="nav-item">
-        <a class="nav-link" href="#">Degtinė</a>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url ('vodka')}}">Degtinė</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Viskiai</a>
-      </li>-->
-      <li class="nav-item">
-        <a class="nav-link" href="{{route ('vodka')}}">Degtinė</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route ('whiskey')}}">Viskiai</a>
+        <a class="nav-link" href="{{url ('whiskey')}}">Viskiai</a>
       <li class="nav-item">  
       <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,9 +31,9 @@
       </li>-->
     </ul>
     <form class="form-inline my-2 my-lg-0">
-        <a href="#" style="color: grey; padding-right: 5px;"><i class="fas fa-heart"></i>Wishlist</a> 
-        <a href="#" style="color: grey; padding-right: 5px;"><i class="fas fa-shopping-cart"></i>Shopping cart</a> 
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <a href="{{route ('cart')}}" style="color: grey; padding-right: 5px;"><i class="fas fa-heart"></i>Wishlist</a> 
+        <a href="{{route ('wishlist')}}" style="color: grey; padding-right: 5px;"><i class="fas fa-shopping-cart"></i>Shopping cart</a> 
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

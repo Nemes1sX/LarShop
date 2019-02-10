@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function vodka(){
        $products = DB::table('products')
                     ->select('*')
-                    ->where('category', Degtinė)
+                    ->where('category', 'Degtinė')
                     ->get();
        
        return view('shop.index', compact('products'));             
@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function whiskey(){
         $products = DB::table('products')
                      ->select('*')
-                     ->where('category', Viskis)
+                     ->where('category', 'Viskis')
                      ->get();
         
         return view('shop.index', compact('products'));             

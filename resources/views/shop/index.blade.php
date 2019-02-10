@@ -12,7 +12,7 @@
                 <p class="card-text">{{$product->description}}</p>
                 <div class="clearfix">
                     <div class="center">
-                        <h3 class="price">{{$product->price}}</h3>
+                        <h3 class="price">{{$product->price}}€</h3>
                         <a href="#" class="btn btn-primary wishlist"><i class="fas fa-heart"></i> Įdėti į Wishlist</a>
                         <a href="#" class="btn btn-success  cart"><i class="fas fa-shopping-cart"></i>Pridėti į krepšelį</a>
                     </div>
