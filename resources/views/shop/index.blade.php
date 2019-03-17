@@ -1,16 +1,27 @@
 @extends('layouts.layout')
 @section('content')
 <div class="row">
-    <div class="sorting">
-        <select name="sorting">
-            <option value="price"><a href="#">Rūšiuoti pagal kainą</a></option>
-            <option value="text"><a href="#">Rūšiuoti pagal pavadinimą</a></option>
-        </select>
+    <div class="sorting inline-block">
+        <form class="form-control" method="post" action="{{ url ('sorting') }}">
+            @csrf
+            @method('POST')
+            <select name="category"> 
+                <option value="Degtinė">Degtinė</option>
+                <option value="Viskis">Viskis</option>
+            </select>
+            <select name="ascdesc"> 
+                <option value="priceasc">Kaina 1-100</option>
+                <option value="pricedesc">Kaina 100-1</option>
+                <option value="nameasc">Pavadinimas A-Z</option>
+                <option value="namedesc">Pavadinimas Z-A</option>
+            </select>
+        <button type="submit" class="btn btn-success">Rūšiuoti</button>    
+        </form>    
     </div>    
 </div>
-@foreach($products->chunk(3) as $chunk)
+@foreach($products->chunk(3) as $chunk) <!-- Išorinis ciklas kuris, prekės išveda po 3 eilutėje -->
 <div class="row">
-    @foreach($chunk as $product)
+    @foreach($chunk as $product) <!-- Vidinis ciklas -->
     <div class="col-sm-6 col-md-4 col-lg-4">
         <div class="thumbnail product" style="width: 18rem;">
             <img class="card-img-top thumbnail img-responsive" src="{{$product->imagePath}}" alt="Card image cap">

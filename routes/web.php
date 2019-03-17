@@ -21,6 +21,8 @@ Route::get('sorttitlevodkaasc', 'ProductController@sorttitlevodkaasc')->name('sh
 Route::get('sorttitlevodkadesc', 'ProductController@sorttitlevodkadesc')->name('shop.index');
 Route::get('sorttitlewhiskeyasc', 'ProductController@sorttitlewhiskeyasc')->name('shop.index');
 Route::get('sorttitlewhiskeydesc', 'ProductController@sorttitlewhiskeydesc')->name('shop.index');
+Route::post('search', 'ProductController@postSearch')->name('shop.index');
+Route::post('sorting', 'ProductController@sorting')->name('shop.index');
 Route::get('cart', 'ProductController@cart')->name('shop.shoppingcart');
 Route::get('wishlist', 'ProductController@wishlist')->name('shop.wishlist');
 Route::get('/add-to-cart/{id}','ProductController@getAddToCart')->name('product.addToCart');

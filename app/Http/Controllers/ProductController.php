@@ -80,7 +80,29 @@ class ProductController extends Controller
       ->orderBy('title', 'desc')
       ->get();
    return view('shop.index', compact('products'));   
-   }     
+   }   
+   
+   public function sorting(Request $request){
+      $query = Product::where('category', '=', $request->input('category'));
+      if ($request->has('ascdesc') == 'priceasc')
+         $query->orderBy('price', 'asc');  
+      elseif  ($request->has('ascdesc') == 'pricedesc')
+         $query->orderBy('price', 'desc'); 
+      elseif ($request->has('ascdesc') == 'nameasc') 
+        $query->orderBy('title', 'asc');        
+      elseif ($request->has('ascdesc') == 'namedesc') 
+        $query->orderBy('title', 'desc');           
+     $products = $query->get();
+     //dd($query);
+     return view('shop.index', compact('products'));    
+   }
+
+   public function postSearch(Request $request)
+{
+  $query = Product::where('title', '=', $request->input('title'));
+  $products = $query->get();
+  return view('shop.index', compact('products'));
+}
 
      public function getAddToCart(Request $request, $id){
         $product = Product::find($id);

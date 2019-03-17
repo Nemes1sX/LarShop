@@ -45,14 +45,16 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>-->
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0" method="post" action="{{ url ('search') }}">
+        @csrf_field
+        @method('POST')
         <a href="{{url ('wishlist')}}" style="color: grey; padding-right: 5px;"><i class="fas fa-heart"></i>Wishlist</a> 
         <a href="{{url ('cart')}}" style="color: grey; padding-right: 5px;"><i class="fas fa-shopping-cart"></i>Shopping cart
           <span class="badge badge-secondary">
             {{Session::has('cart') ? Session::get('cart')->totalPrice  : '' }}
           </span>
         </a> 
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
