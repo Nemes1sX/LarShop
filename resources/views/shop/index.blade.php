@@ -5,11 +5,12 @@
         <form class="form-control" method="post" action="{{ url ('sorting') }}">
             @csrf
             @method('POST')
-            <select name="category"> 
+            <select name="category">
+                <option value="all">Visi</option> 
                 <option value="Degtinė">Degtinė</option>
                 <option value="Viskis">Viskis</option>
             </select>
-            <select name="ascdesc"> 
+            <select name="ascdesc">
                 <option value="priceasc">Kaina 1-100</option>
                 <option value="pricedesc">Kaina 100-1</option>
                 <option value="nameasc">Pavadinimas A-Z</option>

@@ -9,27 +9,6 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>  
       </li>  
-      <li class="nav-item">
-        <a class="nav-link" href="{{url ('vodka')}}">Degtinė</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url ('whiskey')}}">Viskiai</a>
-      <li class="nav-item">  
-        <div class="dropdown show">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Rūšiuoti
-          </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="{{url ('sorttitleasc')}}">Pavadinimas: A-Ž</a>
-          <a class="dropdown-item" href="{{url ('sorttitledesc')}}">Pavadinimas Ž-A</a>
-          <a class="dropdown-item" href="{{url ('sorttitlevodkaasc')}}">Degtinė Pavadinimas: A-Ž </a>
-          <a class="dropdown-item" href="{{url ('sorttitlevodkadesc')}}">Degtinė Pavadinimas: Ž-A</a>
-          <a class="dropdown-item" href="{{url ('sorttitlewhiskeyasc')}}">Viskis Pavadinimas: A-Ž </a>
-          <a class="dropdown-item" href="{{url ('sorttitlewhiskeydesc')}}">Viskis Pavadinimas: Ž-A </a>
-
-      </div>
-      </div> 
       <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
