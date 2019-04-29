@@ -1,22 +1,25 @@
 @extends('layouts.layout')
 @section('content')
 <div class="row">
-    <div class="sorting inline-block">
+    <div class="sorting">
         <form class="form-control" method="post" action="{{ url ('sorting') }}">
             @csrf
             @method('POST')
+            <!--<label>Grupuoti</label>--> 
+            <!--<label>Filtruoti</label>-->
             <select name="category">
                 <option value="all">Visi</option> 
                 <option value="Degtinė">Degtinė</option>
                 <option value="Viskis">Viskis</option>
             </select>
+           <!-- <label>Rūšiuoti</label>-->
             <select name="ascdesc">
                 <option value="priceasc">Kaina 1-100</option>
                 <option value="pricedesc">Kaina 100-1</option>
                 <option value="nameasc">Pavadinimas A-Z</option>
                 <option value="namedesc">Pavadinimas Z-A</option>
             </select>
-        <button type="submit" class="btn btn-success">Rūšiuoti</button>    
+            <button type="submit" class="btn btn-success">Rūšiuoti</button>    
         </form>    
     </div>    
 </div>
@@ -29,6 +32,7 @@
             <div class="caption">
                 <h5 class="card-title">{{$product->title}}</h5>
                 <p class="card-text">Kategorija: {{$product->category}}</p>
+                <p class="card-text">Valstybė: {{$product->country}}</p>
                 <p class="card-text">{{$product->description}}</p>
                 <div class="clearfix">
                     <div class="center">

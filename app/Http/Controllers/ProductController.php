@@ -21,8 +21,9 @@ class ProductController extends Controller
     }   
    public function sorting(Request $request){ //Prekių išvedimas pagal kategorijas ir surūšiavimas kainų arba pavadinimų atžvilgiu didėjimo arba mažėjimo tvarka
       if($request->input('category') == 'all')
-          $query = DB::table('products');
-         else $query = Product::where('category', '=', $request->input('category'));
+          //$query = DB::table('products');
+          $query = DB::table('products')->select('*');
+         else $query = Product::where('category', '=', $request->input('category'));   
       if ($request->input('ascdesc') == 'priceasc')
          $query->orderBy('price', 'asc');  
       if  ($request->input('ascdesc') == 'pricedesc')
@@ -58,9 +59,9 @@ class ProductController extends Controller
         $product = Product::find($title);    
         $oldCart = Session::has('cart') ? Session::get('cart') : null;              
        
-        //put back in session array without deleted item
+        //Perstatomas masyvas pašalinus prekę
         Session::forget('cart', $title);
-        //then you can redirect or whatever you need
+        //Grąžina atgal į puslapį
         return redirect('/');
      }
      public function deleteCart(){ //Sunaikinti krepšelį
