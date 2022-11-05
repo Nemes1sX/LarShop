@@ -1,4 +1,4 @@
-# E-Commerce core system
+# E-Commerce core system LarShop
 E-commerce core system build with Laravel 
 ## Functionality
 1. Product shows under selected categories 
