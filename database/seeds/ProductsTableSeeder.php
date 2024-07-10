@@ -11,8 +11,8 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://images-na.ssl-images-amazon.com/images/I/419Jmp5klRL.jpg',
             'category' => 'Viskis',
             'title' => 'Jack Daniels',
@@ -20,8 +20,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 5.5
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://thinkliquor.com/conor-mcgreggor-proper-twelve-irish-whiskey',
             'category' => 'Viskis',
             'title' => 'Proper 12 No.',
@@ -29,8 +29,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 9
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://img.thewhiskyexchange.com/900/liq_jag1.jpg',
             'category' => 'Viskis',
             'title' => 'Jagermeister',
@@ -38,8 +38,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 8
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://d256619kyxncpv.cloudfront.net/gui/img/2018/03/07/11/2018030711_johnnie_walker_jane_walker_edition__original.png',
             'category' => 'Viskis',
             'title' => 'Johnny Walker: Black label',
@@ -47,8 +47,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 14
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://img.thewhiskyexchange.com/900/irish_jam1.jpg',
             'category' => 'Viskis',
             'title' => 'Jameson',
@@ -56,8 +56,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 15.72
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://www.vynoguru.lt/media/catalog/product/cache/2/image/800x600/9df78eab33525d08d6e5fb8d27136e95/l/i/lithuanian_vodka_originali_1_l.jpg',
             'category' => 'Degtinė',
             'title' => 'Lietuviška degtinė',
@@ -65,8 +65,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 10.50
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://www.cellarbration.com.sg/content/images/thumbs/0001467_grey-goose-original-700ml_540.jpeg',
             'category' => 'Degtinė',
             'title' => 'Grey Goose Original',
@@ -74,8 +74,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 7.8
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://img.thewhiskyexchange.com/900/vodka_abs66.jpg',
             'category' => 'Degtinė',
             'title' => 'Absolut Vodka',
@@ -83,8 +83,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 16
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://img.thewhiskyexchange.com/900/vodka_wyb1.jpg',
             'category' => 'Degtinė',
             'title' => 'Wybrodawa vodka',
@@ -92,8 +92,8 @@ class ProductsTableSeeder extends Seeder
             'price' => 13.40
         ]);
         $product->save();
-        $product = new \App\Product([
-            
+        $product = new \App\Models\Product([
+
             'imagePath' => 'https://www.berevita.com/pub/media/catalog/product/cache/image/1000x1320/e9c3970ab036de70892d86c6d221abfe/3/2/32027.jpg',
             'category' => 'Degtinė',
             'title' => 'Finlandia',
