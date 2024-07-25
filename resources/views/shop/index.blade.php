@@ -158,7 +158,7 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item1.jpg" alt="product-item" class="img-fluid">
+                    <img src="{{ asset('img/product-item1.jpg')}}" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -176,7 +176,7 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item2.jpg" alt="product-item" class="img-fluid">
+                    <img src="{{ asset('img/product-item2.jpg')}}" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -194,7 +194,7 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item3.jpg" alt="product-item" class="img-fluid">
+                    <img src="{{ asset('img/product-item4.jpg')}}" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -212,7 +212,7 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item4.jpg" alt="product-item" class="img-fluid">
+                    <img src="{{ asset('img/product-item5.jpg')}}" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -230,7 +230,7 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item5.jpg" alt="product-item" class="img-fluid">
+                    <img src="{{ asset('img/product-item5.jpg')}}" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">

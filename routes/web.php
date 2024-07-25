@@ -32,6 +32,7 @@ Route::name('product.')->controller(\App\Http\Controllers\ProductController::cla
     Route::get('deletecart', 'ProductController@deleteCart')->name('deleteCart');
     Route::get('/add-to-wishlist/{id}','ProductController@getAddToWishlist')->name('addToWishlist');
 });
+Route::get('/home', 'HomeController@home')->name('home');
 
 
 
