@@ -33,7 +33,9 @@
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}" type="text/js"></script>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+  <script src="{{asset('js/jquery-1.11.0.min.js')}}"></script>
+
 
 
 

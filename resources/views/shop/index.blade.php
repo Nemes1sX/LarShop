@@ -111,6 +111,18 @@
     </section>
 
 <div class="row">
+        @foreach($products->take(4) as $product)
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="{{ $product->imagePath }}" class="img-thumbnail rounded mx-auto d-block" alt="{{ $product->title }}" width="150" height="150">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $product->title }}</h5>
+                        <p class="card-text">{{ $product->price  }} €</p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
 <div class="swiper product-swiper">
   <div class="swiper-wrapper">
@@ -118,7 +130,7 @@
       <div class="swiper-slide">
         <div class="product-card position-relative">
           <div class="image-holder">
-            <img src="{{$product->imagePath}}" alt="{{$product->title}}" class="img-fluid">
+            <img src="{{$product->imagePath}}" alt="{{$product->title}}" class="img-thumbnail">
           </div>
           <div class="cart-concern position-absolute">
             <div class="cart-button d-flex">
