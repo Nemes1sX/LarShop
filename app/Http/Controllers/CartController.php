@@ -16,4 +16,42 @@ class CartController extends Controller
             'success' => 'Cart was added succesfully'
         ]);
     }
+
+    public function removeAll(CartService $cartService)
+    {
+        $cartService->removeAll();
+
+        return response()->json([
+            'success' => 'Cart is empty'
+        ]);
+    }
+
+    public function removeItem(CartService $cartService, int $productId)
+    {
+        $cartService->removeItem($productId);
+
+        return response()->json([
+            'success' => 'Item is removed'    
+        ]);
+    }
+
+    public function addQuantity(CartService $cartService, int $cartId)
+    {
+        $cartService->addQuantity($cartId);
+
+        return response()->json([
+            'success' => 'Item quantity is added'    
+        ]);
+    }
+
+    public function removeQuantity(CartService $cartService, int $cartId)
+    {
+        $cartService->removeItem($cartId);
+
+        return response()->json([
+            'success' => 'Item quantity is removed'    
+        ]);
+    }
+
+
 }

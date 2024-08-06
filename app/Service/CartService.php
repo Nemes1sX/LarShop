@@ -30,6 +30,38 @@ class CartService
         session()->put('cart', $cart);
     }
 
+    public function addQuantity(int $cartId)
+    {
+        $cart = session()->get('cart');
+
+        $cart[$cartId]['quantity']++;
+
+        session()->put('cart', $cart);
+    }
+
+    public function removeQuantity(int $cartId)
+    {
+        $cart = session()->get('cart');
+
+        $cart[$cartId]['quantity']--;
+
+        session()->put('cart', $cart);
+    }
+
+    public function removeAll()
+    {
+        session()->forget('cart');
+    }
+
+    public function removeItem(int $productId)
+    {
+        $cart = session()->get('cart');
+
+        unset($cart[$productId]);
+
+        session()->put('cart', $cart);
+    }
+
     private function updateQuantity($cart, int $quantity)
     {
         $cart['id']['quantity']+=$quantity;
