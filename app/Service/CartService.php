@@ -6,6 +6,11 @@ use App\Models\Product;
 
 class CartService
 {
+    public function index()
+    {
+        return session()->get('cart') ?? null;
+    }
+
     public function add(Product $product, int $quantity)
     {
         $cart = session()->get('cart');

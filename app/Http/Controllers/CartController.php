@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+
+    public function index(CartService $cartService)
+    {
+        $cart = $cartService->index();
+
+        return view('cart', compact('cart'));
+    }
+
     public function add(Request $request, CartService $cartService, Product $product)
     {
         $cartService->add($product, $request->quantity);
