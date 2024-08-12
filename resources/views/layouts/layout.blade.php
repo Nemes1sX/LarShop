@@ -27,6 +27,7 @@
   <div class="container">
     @yield('content')
   </div>
+  @include('shop.footer')
   <script src="{{ asset('js/app.js') }}" type="text/js"></script>
   <script src="{{ asset('js/plugin.js') }}" type="text/js"></script>
   <script src="{{ asset('js/script.js') }}" type="text/js"></script>

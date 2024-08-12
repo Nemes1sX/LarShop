@@ -133,39 +133,5 @@
           <h5 class="text-center">No products</h5>
         @endforelse
     </div>
-<section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
-<div class="swiper product-swiper">
-  <div class="swiper-wrapper">
-    @forelse($products->take(4) as $product)
-      <div class="swiper-slide">
-        <div class="product-card position-relative">
-          <div class="image-holder">
-            <img src="{{$product->imagePath}}" alt="{{$product->title}}" class="img-thumbnail">
-          </div>
-          <div class="cart-concern position-absolute">
-            <div class="cart-button d-flex">
-              <a href="{{ route('product.addToCart', $product->id) }}" class="btn btn-medium btn-black">
-                Add to Cart
-                <svg class="cart-outline">
-                  <use xlink:href="#cart-outline"></use>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-            <h3 class="card-title text-uppercase">
-              <a href="#">{{$product->title}}</a>
-            </h3>
-            <span class="item-price text-primary">{{$product->price}}</span>
-  
-          </div>
-        </div>
-      </div>
-    @empty
-      <h6 class="text-center">No products</h6>
-    @endforelse
-  </div>
-</div>  
-</section>
 </div>           
-@endsection  
+@endsection

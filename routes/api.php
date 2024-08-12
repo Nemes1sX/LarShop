@@ -20,7 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::prefix('cart/')->name('cart.')->controller(CartController::class)->group(function () {
     Route::post('add/{product}', 'add')->name('add');
-    Route::put('remove/{product}', 'remove')->name('remove');
+    Route::post('remove/{product}', 'remove')->name('remove');
     Route::post('remove', 'removeAll')->name('removeAll');
-    Route::get
+    Route::get('index', 'index')->name('index');
+    Route::post('add/quantity/product}', 'addQuantity')->name('add');
+    Route::post('remove/quantity/{product}', 'removeQuantity')->name('remove');
 });
