@@ -20,7 +20,7 @@ class CartService
             return;
         }
         if(isset($cart[$product->id])) {
-            $this->updateQuantity($quantity);
+            $this->updateQuantity($cart, $quantity);
             return;
         }
 

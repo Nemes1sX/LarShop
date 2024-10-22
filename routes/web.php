@@ -26,11 +26,11 @@ Route::name('product.')->controller(\App\Http\Controllers\ProductController::cla
     Route::get('sorttitlewhiskeydesc', 'sorttitlewhiskeydesc')->name('shop.index');
     Route::post('search', 'postSearch')->name('shop.search');
     Route::post('sorting', 'ProductController@sorting')->name('shop.index');
-    Route::get('cart', 'ProductController@cart')->name('shop.shoppingcart');
+    Route::get('cart', 'ProductController@cart')->name('cart');
     Route::get('wishlist', 'ProductController@wishlist')->name('shop.wishlist');
     Route::get('/add-to-cart/{id}','ProductController@getAddToCart')->name('addToCart');
     Route::get('/deleteItem/{id}', 'ProductController@deleteItem')->name('deleteItem');
-    Route::get('deletecart', 'ProductController@deleteCart')->name('deleteCart');
+    Route::get('cart/delete', 'ProductController@deleteCart')->name('delete.cart');
     Route::get('/add-to-wishlist/{id}','ProductController@getAddToWishlist')->name('addToWishlist');
 });
 Route::get('/home', 'HomeController@home')->name('home');
