@@ -114,8 +114,8 @@
           <div class="Shipping d-flex">
             <p>We ship with:</p>
             <div class="card-wrap ps-2">
-              <img src="images/dhl.png" alt="visa">
-              <img src="images/shippingcard.png" alt="mastercard">
+              <img src="{{ asset('img/visa.jpg') }}" alt="visa">
+              <img src="{{ asset('img/mastercard.jpg' ) }}" alt="mastercard">
             </div>
           </div>
         </div>
@@ -123,9 +123,9 @@
           <div class="payment-method d-flex">
             <p>Payment options:</p>
             <div class="card-wrap ps-2">
-              <img src="images/visa.jpg" alt="visa">
-              <img src="images/mastercard.jpg" alt="mastercard">
-              <img src="images/paypal.jpg" alt="paypal">
+              <img src="{{ asset('img/visa.jpg') }}" alt="visa">
+              <img src="{{ asset('img/mastercard.jpg' ) }}" alt="mastercard">
+              <img src="{{ asset('img/paypal.jpg') }}" alt="paypal">
             </div>
           </div>
         </div>

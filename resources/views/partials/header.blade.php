@@ -88,7 +88,7 @@
 <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="#">MyShop</a>
+                <a href="{{route('product.index')}}">MyShop</a>
             </div>
             <nav class="nav">
                 <ul>
