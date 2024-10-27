@@ -11,17 +11,27 @@ class CartController extends Controller
 
     public function index(CartService $cartService)
     {
-        $cart = $cartService->index();
+        $cart = $cartService->index() ?? [];
+        $quantities = array_column($cart, 'quantity');
+        $prices = array_column($cart, 'price');
 
-        return view('cart', compact('cart'));
+        $totalQuantity = array_sum($quantities);
+        $totalPrice = array_sum(array_map('floatval', $prices)); 
+
+        return view('cart', compact('cart','totalPrice', 'totalQuantity'));
     }
 
     public function add(Request $request, CartService $cartService, Product $product)
     {
         $cartService->add($product, $request->quantity);
-        
+        $cart = $cartService->index();
+
+        $quantities = array_column($cart, 'quantity');
+        $totalQuantity = array_sum($quantities);
+
         return response()->json([
-            'success' => 'Cart was added succesfully'
+            'success' => 'Cart was added succesfully',
+            'items' => $totalQuantity
         ]);
     }
 

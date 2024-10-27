@@ -8,7 +8,7 @@ class CartService
 {
     public function index()
     {
-        return session()->get('cart') ?? null;
+        return session()->get('cart') ?? [];
     }
 
     public function add(Product $product, int $quantity)
@@ -26,7 +26,7 @@ class CartService
 
         
         $cart[$product->id] = [
-            "name" => $product->name,
+            "name" => $product->title,
             "quantity" => $quantity,
             "price" => $product->price,
             "photo" => $product->photo
@@ -76,7 +76,7 @@ class CartService
     private function newCart(Product $product, $quantity)
     {
         $cart[$product->id] = [
-            "name" => $product->name,
+            "name" => $product->title,
             "quantity" => $quantity,
             "price" => $product->price,
             "photo" => $product->photo
