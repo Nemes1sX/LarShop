@@ -10,6 +10,8 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <title>Shopping cart</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +23,7 @@
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('css/vendor.css') }}" rel="stylesheet" type="text/css" />
   <script src="{{ asset('js/modernizr.js') }}" type="text/js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
   @include('partials.header')
