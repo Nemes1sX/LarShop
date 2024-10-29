@@ -27,13 +27,16 @@
   <div class="container">
     @yield('content')
   </div>
+  @include('shop.footer')
   <script src="{{ asset('js/app.js') }}" type="text/js"></script>
   <script src="{{ asset('js/plugin.js') }}" type="text/js"></script>
   <script src="{{ asset('js/script.js') }}" type="text/js"></script>
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}" type="text/js"></script>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+  <script src="{{asset('js/jquery-1.11.0.min.js')}}"></script>
+
 
 
 
