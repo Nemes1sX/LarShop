@@ -26,6 +26,7 @@ class CartService
 
         
         $cart[$product->id] = [
+            "id" => $product->id,
             "name" => $product->title,
             "quantity" => $quantity,
             "price" => $product->price,
@@ -76,6 +77,7 @@ class CartService
     private function newCart(Product $product, $quantity)
     {
         $cart[$product->id] = [
+            "id" => $product->id,
             "name" => $product->title,
             "quantity" => $quantity,
             "price" => $product->price,

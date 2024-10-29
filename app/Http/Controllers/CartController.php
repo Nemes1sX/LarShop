@@ -16,7 +16,9 @@ class CartController extends Controller
         $prices = array_column($cart, 'price');
 
         $totalQuantity = array_sum($quantities);
-        $totalPrice = array_sum(array_map('floatval', $prices)); 
+        $totalPrice = array_sum(array_map(function ($item ) { 
+           return $item['quantity'] * floatval($item['price']);
+        }, $cart)); 
 
         return view('cart', compact('cart','totalPrice', 'totalQuantity'));
     }
@@ -28,10 +30,15 @@ class CartController extends Controller
 
         $quantities = array_column($cart, 'quantity');
         $totalQuantity = array_sum($quantities);
+        $totalPrice = array_sum(array_map(function ($item ) { 
+            return $item['quantity'] * floatval($item['price']);
+         }, $cart)); 
+ 
 
         return response()->json([
             'success' => 'Cart was added succesfully',
-            'items' => $totalQuantity
+            'items' => $totalQuantity,
+            'totalPrice' => $totalPrice   
         ]);
     }
 
@@ -39,35 +46,62 @@ class CartController extends Controller
     {
         $cartService->removeAll();
 
-        return response()->json([
+        return redirect()->back();
+        /*return response()->json([
             'success' => 'Cart is empty'
-        ]);
+        ]);*/
     }
 
-    public function removeItem(CartService $cartService, int $productId)
+    public function remove(CartService $cartService, int $productId)
     {
         $cartService->removeItem($productId);
 
-        return response()->json([
+        return redirect()->back();
+        /*return response()->json([
             'success' => 'Item is removed'    
-        ]);
+        ]);*/
     }
 
     public function addQuantity(CartService $cartService, int $cartId)
     {
         $cartService->addQuantity($cartId);
 
+        $cart = $cartService->index();
+        $quantities = array_column($cart, 'quantity');
+
+        $totalQuantity = array_sum($quantities);
+        $totalPrice = array_sum(array_map(function ($item ) { 
+           return $item['quantity'] * floatval($item['price']);
+        }, $cart)); 
+
+
         return response()->json([
-            'success' => 'Item quantity is added'    
+            'success' => 'Item quantity is added', 
+            'quantity' => $cart[$cartId]['quantity'],
+            'items' => $totalQuantity,
+            'itemTotalPrice' => $cart[$cartId]['quantity'] * $cart[$cartId]['price'],
+            'totalPrice' => $totalPrice 
         ]);
     }
 
     public function removeQuantity(CartService $cartService, int $cartId)
     {
-        $cartService->removeItem($cartId);
+        $cartService->removeQuantity($cartId);
+
+        $cart = $cartService->index();
+        $quantities = array_column($cart, 'quantity');
+
+        $totalQuantity = array_sum($quantities);
+        $totalPrice = array_sum(array_map(function ($item ) { 
+           return $item['quantity'] * floatval($item['price']);
+        }, $cart)); 
 
         return response()->json([
-            'success' => 'Item quantity is removed'    
+            'success' => 'Item quantity is removed',
+            'quantity' => $cart[$cartId]['quantity'],
+            'items' => $totalQuantity,
+            'itemTotalPrice' => $cart[$cartId]['quantity'] * $cart[$cartId]['price'],
+            'totalPrice' => $totalPrice    
         ]);
     }
 
