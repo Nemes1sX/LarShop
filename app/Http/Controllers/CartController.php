@@ -52,13 +52,14 @@ class CartController extends Controller
         ]);*/
     }
 
-    public function removeItem(CartService $cartService, int $productId)
+    public function remove(CartService $cartService, int $productId)
     {
         $cartService->removeItem($productId);
 
-        return response()->json([
+        return redirect()->back();
+        /*return response()->json([
             'success' => 'Item is removed'    
-        ]);
+        ]);*/
     }
 
     public function addQuantity(CartService $cartService, int $cartId)

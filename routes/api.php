@@ -23,6 +23,6 @@ Route::prefix('cart/')->name('cart.')->controller(CartController::class)->group(
     Route::post('remove/{product}', 'remove')->name('remove');
     Route::get('remove', 'removeAll')->name('remove.all');
     Route::get('index', 'index')->name('index');
-    Route::post('add/quantity/{product}', 'addQuantity')->name('add');
-    Route::post('remove/quantity/{product}', 'removeQuantity')->name('remove');
+    Route::post('add/quantity/{product}', 'addQuantity')->name('add.quantity');
+    Route::post('remove/quantity/{product}', 'removeQuantity')->name('remove.quantity');
 });
