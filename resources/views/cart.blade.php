@@ -43,28 +43,48 @@
             <div class="col-md-12 offset-md-2 text-right mt-4">
                 <div class="card">
                     <div class="card-body">
-                        <form method="POST" action="{{}}">
+                        <form method="POST" action="{{ route('order.store') }}">
+                            @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    aria-describedby="emailHelp">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                    id="email" name="email" aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="fullName" class="form-label">Full name</label>
-                                <input type="text" class="form-control" name="fullname" id="fullName">
+                                <input type="text" class="form-control @error('fullname') is-invalid @enderror"
+                                    name="fullname" id="fullName">
+                                @error('fullname')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" name="address" id="address">
+                                <input type="text" class="form-control @error('address') is-invalid @enderror"
+                                    name="address" id="address">
+                                @error('address')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="city" class="form-label">City</label>
-                                <input type="text" class="form-control" name="city" id="city">
+                                <input type="text" class="form-control @error('city') is-invalid @enderror"
+                                    name="city" id="city">
+                                @error('city')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="postCode" class="form-label">Post code</label>
-                                <input type="text" class="form-control" name="postcode" id="postCode">
+                                <input type="text" class="form-control @error('postcode') is-invalid @enderror"
+                                    name="postcode" id="postCode">
+                                @error('postcode')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -98,7 +118,7 @@
                         let quantity = result.quantity;
                         let itemTotalPrice = result.itemTotalPrice;
                         vm.closest('.card').find('.item-total-price').text(itemTotalPrice +
-                        "€");
+                            "€");
                         vm.prev().text(quantity);
                         $('.total-price').text(totalPrice + "€");
                         $('.cart-count').text(cartCount);
@@ -127,7 +147,7 @@
                         let itemTotalPrice = result.itemTotalPrice;
                         console.log(itemTotalPrice);
                         vm.closest('.card').find('.item-total-price').text(itemTotalPrice +
-                        "€");
+                            "€");
                         vm.next().text(quantity);
                         $('.total-price').text(totalPrice + "€");
                         $('.cart-count').text(cartCount);

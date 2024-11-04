@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,12 @@ Route::name('product.')->controller(\App\Http\Controllers\ProductController::cla
     Route::post('sorting', 'ProductController@sorting')->name('shop.index');
     Route::get('wishlist', 'ProductController@wishlist')->name('shop.wishlist');
     Route::get('/add-to-wishlist/{id}','ProductController@getAddToWishlist')->name('addToWishlist');
+});
+Route::prefix('/orders')->name('order.')->controller(OrderController::class)->group(function () {
+    Route::post('/store', 'store')->name('store');
+    Route::get('/test', 'test')->name('test');
+    Route::get('/success','callbackSuccess')->name('callback.success');
+    Route::get('/failed','callbackFailed')->name('callback.failed');
 });
 Route::get('/cart',  [CartController::class, 'index'])->name('cart');
 Route::get('/home', 'HomeController@home')->name('home');
