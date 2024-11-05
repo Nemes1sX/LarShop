@@ -25,9 +25,13 @@ class OrderController extends Controller
 
          $response = $stripe->checkout->sessions->create([
             'success_url' => route('order.callback.success', $order),
-            'failed_url' => route('order.callback.failed', $order),
-            'metadata' => $order,
-            "amount_total" => $totalPrice,
+                'metadata' => $order,
+            'line_items'  => [
+                [
+                'price' => $totalPrice * 100,
+                'quantity' => 1  
+                ]   
+            ],
             'mode' => 'payment',
           ]);
 
