@@ -2,7 +2,7 @@
 @section('content')
     <div class="row mt-5">
         @forelse($cart as $item)
-            <div class="col-md-12 offset-md-1 mb-4">
+            <div class="col-md-12 mx-auto offset-md-1 mb-4">
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -37,10 +37,12 @@
 
         @if ($cart && count($cart) > 0)
             <div class="col-md-8 offset-md-2 text-right mt-4 d-flex">
-                <h5>Total: <span class="text-success total-price">{{ $totalPrice }}€</span></h5>
-                <a href="{{ route('cart.remove.all') }}" class="btn btn-danger mx-1">Remove cart</a>
+                <p class="text-end fw-bold">Total price: {{ $totalPrice}} €</p>
+                <div class="d-flex justify-content-between">
+                  <button class="btn btn-danger mx-1">Remove cart</button>
+                </div>
             </div>
-            <div class="col-md-12 offset-md-2 text-right mt-4">
+            <div class="col-md-12 offset-md-2 text-right mx-auto mt-4">
                 <div class="card">
                     <div class="card-body">
                         <form method="POST" action="{{ route('order.store') }}">
@@ -87,8 +89,11 @@
                                 @enderror
                             </div>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" name="terms" class="form-check-input @error('terms') is-invalid @enderror" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Accept service and terms </label>
+                                @error('terms')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-success mr-2">Pay</button>
                         </form>

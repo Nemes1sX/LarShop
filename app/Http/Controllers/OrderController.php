@@ -20,7 +20,7 @@ class OrderController extends Controller
             return $item['quantity'] * floatval($item['price']);
          }, $cart)); 
 
-         $order = Order::create($request->validated());
+         $order = Order::create($request->except('terms')->validated());
 
          $metadata = [
             'order_id' => $order->id,
@@ -43,6 +43,9 @@ class OrderController extends Controller
                 ]   
             ],
             'mode' => 'payment',
+            'payment_intent_data' => [
+                'metadata' => $metadata
+            ]
           ]);
 
         return redirect($response->url);
