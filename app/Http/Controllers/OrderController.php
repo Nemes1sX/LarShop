@@ -6,7 +6,6 @@ use App\Enums\OrderStatus;
 use App\Http\Requests\StoreOrderRequest;
 use App\Models\Order;
 use App\Service\CartService;
-use Illuminate\Http\Request;
 use Stripe\StripeClient;
 
 class OrderController extends Controller
@@ -23,28 +22,41 @@ class OrderController extends Controller
 
          $order = Order::create($request->validated());
 
+         $metadata = [
+            'order_id' => $order->id,
+            'order_status' => $order->status->value
+        ];
+
          $response = $stripe->checkout->sessions->create([
             'success_url' => route('order.callback.success', $order),
-                'metadata' => $order,
+            'metadata' => $metadata,
             'line_items'  => [
                 [
-                'price' => $totalPrice * 100,
+                'price_data' => [ 
+                  'currency' => 'EUR',
+                  'unit_amount' =>  $totalPrice * 100,
+                  'product_data' => [
+                    'name' => 'No.'. $order->id
+                  ]
+                  ],
                 'quantity' => 1  
                 ]   
             ],
             'mode' => 'payment',
           ]);
 
-          redirect($response->url);
+        return redirect($response->url);
     }
 
-    public function callbackSucesssOrder(Order $order)
+    public function callbackSuccesssOrder(Order $order, CartService $cartService)
     {
         $order->update([
             'status' => OrderStatus::Complete
         ]);
         
-        return redirect()->route('order.success');
+        $cartService->removeAll();
+
+        return view('order.success');
     }
 
     public function callbackFailedOrder(Order $order)
