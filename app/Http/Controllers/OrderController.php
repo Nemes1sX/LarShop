@@ -20,7 +20,7 @@ class OrderController extends Controller
             return $item['quantity'] * floatval($item['price']);
          }, $cart)); 
 
-         $order = Order::create($request->except('terms')->validated());
+         $order = Order::create($request->validated());
 
          $metadata = [
             'order_id' => $order->id,
@@ -71,8 +71,4 @@ class OrderController extends Controller
         return 'Order failed';
     }
 
-    public function test()
-    {
-        phpinfo();
-    }
 }
