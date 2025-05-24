@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Composers;
+namespace App\Composers;
 
 use App\Service\CartService;
 use Illuminate\View\View;
