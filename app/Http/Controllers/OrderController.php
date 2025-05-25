@@ -68,7 +68,7 @@ class OrderController extends Controller
             'status' => OrderStatus::Failed
         ]);
 
-        return 'Order failed';
+        return view('order.failed');
     }
 
 }
