@@ -16,9 +16,9 @@ class OrderController extends Controller
 
          $stripe = new StripeClient(env('STRIPE_SECRET'));
 
-         $totalPrice = array_sum(array_map(function ($item ) { 
+         $totalPrice = array_sum(array_map(function ($item ) {
             return $item['quantity'] * floatval($item['price']);
-         }, $cart)); 
+         }, $cart));
 
          $order = Order::create($request->validated());
 
@@ -28,46 +28,36 @@ class OrderController extends Controller
         ];
 
          $response = $stripe->checkout->sessions->create([
-            'success_url' => route('order.callback.success', $order),
+            'success_url' => route('order.callback.success'),
+            'cancel_url' => route('order.callback.cancel'),
             'metadata' => $metadata,
             'line_items'  => [
                 [
-                'price_data' => [ 
+                'price_data' => [
                   'currency' => 'EUR',
                   'unit_amount' =>  $totalPrice * 100,
                   'product_data' => [
                     'name' => 'No.'. $order->id
                   ]
                   ],
-                'quantity' => 1  
-                ]   
+                'quantity' => 1
+                ]
             ],
             'mode' => 'payment',
-            'payment_intent_data' => [
-                'metadata' => $metadata
-            ]
           ]);
 
         return redirect($response->url);
     }
 
-    public function callbackSuccesssOrder(Order $order, CartService $cartService)
+    public function callbackSuccesssOrder(CartService $cartService)
     {
-        $order->update([
-            'status' => OrderStatus::Complete
-        ]);
-        
         $cartService->removeAll();
 
         return view('order.success');
     }
 
-    public function callbackFailedOrder(Order $order)
+    public function callbackFailedOrder()
     {
-        $order->update([
-            'status' => OrderStatus::Failed
-        ]);
-
         return 'Order failed';
     }
 

@@ -29,7 +29,7 @@ Route::prefix('/orders')->name('order.')->controller(OrderController::class)->gr
     Route::get('/success/{order}','callbackSuccesssOrder')->name('callback.success');
     Route::get('/failed/{order}','callbackFailed')->name('callback.failed');
 });
-Route::post('/callbacks/payments/stripe/connect', [StripeController::class, 'handleWebhook']);
+Route::post('/stripe/webhook', StripeController::class);
 Route::get('/cart',  [CartController::class, 'index'])->name('cart');
 Route::get('/home', 'HomeController@home')->name('home');
 
