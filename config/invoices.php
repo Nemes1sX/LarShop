@@ -15,7 +15,7 @@ return [
     ],
 
     'serial_number' => [
-        'series'   => 'AA',
+        'series'   => 'TEST',
         'sequence' => 1,
 
         /*
