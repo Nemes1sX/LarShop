@@ -74,11 +74,9 @@ class PaymentIntentSucceedJob implements ShouldQueue
             $invoiceItems[] = $item;
         }
 
-
-
         $invoiceRecord = $order->invoice()->create();
 
-        $filename = 'invoices/' . $invoiceRecord->invoice_no . '-' . uniqid() . '.pdf';
+        $filename = 'invoices/' . $invoiceRecord->series_no . '-' . uniqid() . '.pdf';
 
         $invoice = Invoice::make()
             ->series($series)
@@ -93,9 +91,8 @@ class PaymentIntentSucceedJob implements ShouldQueue
             ->logo(public_path('vendor/invoices/sample-logo.png'))
             ->save('public');
 
-         $order->invoice()->create([
+        $invoiceRecord->update([
             'link' => $invoice->url()
         ]);
-
     }
 }

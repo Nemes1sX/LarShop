@@ -18,7 +18,7 @@ class OrderController extends Controller
         $cart = $cartService->index();
 
         try {
-            $stripe = new StripeClient(env('STRIPE_SECRET'));
+            $stripe = new StripeClient(config('stripe.secret_key'));
 
             $totalPrice = array_sum(array_map(function ($item) {
                 return $item['quantity'] * floatval($item['price']);
