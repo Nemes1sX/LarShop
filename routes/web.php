@@ -26,8 +26,8 @@ Route::name('product.')->controller(\App\Http\Controllers\ProductController::cla
 Route::prefix('/orders')->name('order.')->controller(OrderController::class)->group(function () {
     Route::post('/store', 'store')->name('store');
     Route::get('/test', 'test')->name('test');
-    Route::get('/success/{order}','callbackSuccesssOrder')->name('callback.success');
-    Route::get('/failed/{order}','callbackFailed')->name('callback.failed');
+    Route::get('/success','callbackSuccess')->name('callback.success');
+    Route::get('/failed','callbackFailed')->name('callback.failed');
 });
 Route::post('/stripe/webhook', StripeController::class);
 Route::get('/cart',  [CartController::class, 'index'])->name('cart');

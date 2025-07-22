@@ -26,20 +26,31 @@ class OrderController extends Controller
 
             $order = Order::create($request->validated());
 
+            foreach ($cart as $item) {
+                $order->orderLines()->create([
+                    'name' => $item['name'],
+                    'quantity' => $item['quantity'],
+                    'price' => $item['price'],
+                ]);
+            }
+
             $metadata = [
-                'order_id' => $order->id,
-                'order_status' => $order->status->value,
-                'fullname' => $order->fullname,
-                'email' => $order->email,
-                'postcode' => $order->postcode,
-                'address' => $order->address,
-                'city' => $order->city,
+                'order_id' => (string) $order->id,
+                'order_status' => (string) $order->status->value,
+                'fullname' => (string) $order->fullname,
+                'email' => (string) $order->email,
+                'postcode' => (string) $order->postcode,
+                'address' => (string) $order->address,
+                'city' => (string) $order->city,
             ];
 
             $response = $stripe->checkout->sessions->create([
                 'success_url' => route('order.callback.success'),
-                'cancel_url' => route('order.callback.cancel'),
+                'cancel_url' => route('order.callback.failed'),
                 'metadata' => $metadata,
+                'payment_intent_data' => [
+                    'metadata' => $metadata,
+                ],
                 'line_items' => [
                     [
                         'price_data' => [
@@ -62,14 +73,14 @@ class OrderController extends Controller
         }
     }
 
-    public function callbackSuccesssOrder(CartService $cartService)
+    public function callbackSuccess(CartService $cartService)
     {
         $cartService->removeAll();
 
         return view('order.success');
     }
 
-    public function callbackFailedOrder()
+    public function callbackFailed()
     {
         return 'Order failed';
     }

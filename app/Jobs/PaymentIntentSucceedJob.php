@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Enums\OrderStatus;
 use App\Models\Order;
+use App\Models\OrderLines;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
@@ -34,26 +35,27 @@ class PaymentIntentSucceedJob implements ShouldQueue
     {
         $orderId = $this->stripeData->metadata->order_id;
 
-        $order = Order::where('order_id', $orderId)->first();
+        $order = Order::where('id', (int) $orderId)->first();
 
         if (!$order) {
             Log::error('Order not found');
+            return;
         }
 
-        $series = config('invoice.seriaL_number.series');
+        $series = config('invoices.serial_number.series');
 
         $order->update([
             'status' => OrderStatus::Complete->value
         ]);
-        $orderLines = $order->orderLines();
 
+        $orderLines = OrderLines::where('order_id', $order->id)->get();
 
         $sellerCompany =  new Party([
         'name'          => 'Testas Testenis',
         'address'       => 'Akacijų aklg. 3',
         'code'          => '22663214',
         'custom_fields' => [
-            'order number' => '> '.$order->id.' <',
+            'order number' => $order->id,
         ],
     ]);
 
@@ -67,7 +69,7 @@ class PaymentIntentSucceedJob implements ShouldQueue
 
         foreach ($orderLines as $line) {
             $item = InvoiceItem::make($line->name)
-                ->pricePerUnit($line->price_per_unit)
+                ->pricePerUnit($line->price)
                 ->quantity($line->quantity);
 
 
@@ -76,7 +78,7 @@ class PaymentIntentSucceedJob implements ShouldQueue
 
         $invoiceRecord = $order->invoice()->create();
 
-        $filename = 'invoices/' . $invoiceRecord->series_no . '-' . uniqid() . '.pdf';
+        $filename = 'invoices/' . $invoiceRecord->series_no . '-' . uniqid();
 
         $invoice = Invoice::make()
             ->series($series)

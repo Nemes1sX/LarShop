@@ -29,8 +29,8 @@ class StripeController extends Controller
         }
 
         match ($event->type) {
-            'payment_intent.succeeded' => PaymentIntentSucceedJob::class,
-            'payment_intent.payment_failed' => PaymentIntentFailedJob::class,
+            'payment_intent.succeeded' => PaymentIntentSucceedJob::dispatch($event->data->object),
+            'payment_intent.payment_failed' => PaymentIntentFailedJob::dispatch($event->data->object),
             default => Log::error('Unknown event type '. $event->type),
         };
 
