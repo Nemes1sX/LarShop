@@ -24,10 +24,11 @@
     "require-dev": {
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
+        "laravel/breeze": "^2.3",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^v8.8",
-        "phpunit/phpunit": "^11.0",
-        "pestphp/pest": "^3.0"
+        "pestphp/pest": "^3.8",
+        "pestphp/pest-plugin-laravel": "^3.2"
     },
     "config": {
         "optimize-autoloader": true,
